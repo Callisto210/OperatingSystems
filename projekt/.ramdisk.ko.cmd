@@ -1,0 +1,1 @@
+cmd_/home/patryk/sysopy/projekt/ramdisk.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/patryk/sysopy/projekt/ramdisk.ko /home/patryk/sysopy/projekt/ramdisk.o /home/patryk/sysopy/projekt/ramdisk.mod.o

@@ -1,0 +1,18 @@
+1. Sygnały działają normalnie, to znaczy ubija proces
+
+2. SIGKILL SIGSTOP nie da się ich zamaskować, więc ubijają proces
+Pozostałe sygnały działają normalnie, mimo ich zamaskowania, tzn. cały proces jest ubijany
+
+3.SIGKILL SIGSTOP nie da się ich przejąć, więc ubijają proces 
+Wypisuje sie PID, TID wątku głównego, który nie blokuje sygnału, ani nie wykonuje funkcji obsługi sygnału.
+
+4. Oprócz SIGKILL i SIGSTOP, to program nie reaguje na zamaskowane sygnały.
+
+5. Oprócz SIGKILL i SIGSTOP, to program wypisuję PID i TID wątku.
+
+b)
+
+Cały program się zatrzymuje, generowany jest błąd operacji zmiennoprzecinkowych.
+
+uname -a
+Linux 4.1.12-gentoo #4 Tue Feb 16 13:17:33 CET 2016 i686 Intel(R) Pentium(R) M processor 1.86GHz GenuineIntel GNU/Linux

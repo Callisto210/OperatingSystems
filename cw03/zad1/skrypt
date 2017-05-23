@@ -1,0 +1,79 @@
+data = read.csv("wyniki")
+data$sum = data$sys + data$usr
+w1 = data[data$proces=="mother",]
+w2 = data[data$proces=="child",]
+w3 = aggregate( cbind(real, sys, usr, sum) ~ funkcja:n, data=data, FUN=sum)
+
+pdf("wyniki.pdf")
+plot(w1[w1$funkcja=="fork",]$real ~ w1[w1$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Rzeczywisty czas wykonania [s]", col="red")
+lines(w1[w1$funkcja=="vfork",]$real ~ w1[w1$funkcja=="vfork",]$n, type="o", col="green")
+lines(w1[w1$funkcja=="clone",]$real ~ w1[w1$funkcja=="clone",]$n, type="o", col="blue")
+lines(w1[w1$funkcja=="clonev",]$real ~ w1[w1$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w1$real), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w1[w1$funkcja=="fork",]$sys ~ w1[w1$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Systemowy czas wykonania [s]", col="red")
+lines(w1[w1$funkcja=="vfork",]$sys ~ w1[w1$funkcja=="vfork",]$n, type="o", col="green")
+lines(w1[w1$funkcja=="clone",]$sys ~ w1[w1$funkcja=="clone",]$n, type="o", col="blue")
+lines(w1[w1$funkcja=="clonev",]$sys ~ w1[w1$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w1$sys), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w1[w1$funkcja=="fork",]$usr ~ w1[w1$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Czas wykonania użytkownika [s]", col="red")
+lines(w1[w1$funkcja=="vfork",]$usr ~ w1[w1$funkcja=="vfork",]$n, type="o", col="green")
+lines(w1[w1$funkcja=="clone",]$usr ~ w1[w1$funkcja=="clone",]$n, type="o", col="blue")
+lines(w1[w1$funkcja=="clonev",]$usr ~ w1[w1$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w1$usr), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w1[w1$funkcja=="fork",]$sum ~ w1[w1$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Sumaryczny czas wykonania [s]", col="red")
+lines(w1[w1$funkcja=="vfork",]$sum ~ w1[w1$funkcja=="vfork",]$n, type="o", col="green")
+lines(w1[w1$funkcja=="clone",]$sum ~ w1[w1$funkcja=="clone",]$n, type="o", col="blue")
+lines(w1[w1$funkcja=="clonev",]$sum ~ w1[w1$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w1$sum), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w2[w2$funkcja=="fork",]$real ~ w2[w2$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Rzeczywisty czas wykonania [s]", col="red")
+lines(w2[w2$funkcja=="vfork",]$real ~ w2[w2$funkcja=="vfork",]$n, type="o", col="green")
+lines(w2[w2$funkcja=="clone",]$real ~ w2[w2$funkcja=="clone",]$n, type="o", col="blue")
+lines(w2[w2$funkcja=="clonev",]$real ~ w2[w2$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w2$real), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w2[w2$funkcja=="fork",]$sys ~ w2[w2$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Systemowy czas wykonania [s]", col="red")
+lines(w2[w2$funkcja=="vfork",]$sys ~ w2[w2$funkcja=="vfork",]$n, type="o", col="green")
+lines(w2[w2$funkcja=="clone",]$sys ~ w2[w2$funkcja=="clone",]$n, type="o", col="blue")
+lines(w2[w2$funkcja=="clonev",]$sys ~ w2[w2$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w2$sys), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w2[w2$funkcja=="fork",]$usr ~ w2[w2$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Czas wykonania użytkownika [s]", col="red")
+lines(w2[w2$funkcja=="vfork",]$usr ~ w2[w2$funkcja=="vfork",]$n, type="o", col="green")
+lines(w2[w2$funkcja=="clone",]$usr ~ w2[w2$funkcja=="clone",]$n, type="o", col="blue")
+lines(w2[w2$funkcja=="clonev",]$usr ~ w2[w2$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w2$usr), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w2[w2$funkcja=="fork",]$sum ~ w2[w2$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Sumaryczny czas wykonania [s]", col="red")
+lines(w2[w2$funkcja=="vfork",]$sum ~ w2[w2$funkcja=="vfork",]$n, type="o", col="green")
+lines(w2[w2$funkcja=="clone",]$sum ~ w2[w2$funkcja=="clone",]$n, type="o", col="blue")
+lines(w2[w2$funkcja=="clonev",]$sum ~ w2[w2$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w2$sum), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w3[w3$funkcja=="fork",]$real ~ w3[w3$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Rzeczywisty czas wykonania [s]", col="red")
+lines(w3[w3$funkcja=="vfork",]$real ~ w3[w3$funkcja=="vfork",]$n, type="o", col="green")
+lines(w3[w3$funkcja=="clone",]$real ~ w3[w3$funkcja=="clone",]$n, type="o", col="blue")
+lines(w3[w3$funkcja=="clonev",]$real ~ w3[w3$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w3$real), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w3[w3$funkcja=="fork",]$sys ~ w3[w3$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Systemowy czas wykonania [s]", col="red")
+lines(w3[w3$funkcja=="vfork",]$sys ~ w3[w3$funkcja=="vfork",]$n, type="o", col="green")
+lines(w3[w3$funkcja=="clone",]$sys ~ w3[w3$funkcja=="clone",]$n, type="o", col="blue")
+lines(w3[w3$funkcja=="clonev",]$sys ~ w3[w3$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w3$sys), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w3[w3$funkcja=="fork",]$usr ~ w3[w3$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Czas wykonania użytkownika [s]", col="red")
+lines(w3[w3$funkcja=="vfork",]$usr ~ w3[w3$funkcja=="vfork",]$n, type="o", col="green")
+lines(w3[w3$funkcja=="clone",]$usr ~ w3[w3$funkcja=="clone",]$n, type="o", col="blue")
+lines(w3[w3$funkcja=="clonev",]$usr ~ w3[w3$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w3$usr), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+
+plot(w3[w3$funkcja=="fork",]$sum ~ w3[w3$funkcja=="fork",]$n, type="o", xlab="Wielkość danych wejściowych", ylab="Sumaryczny czas wykonania [s]", col="red")
+lines(w3[w3$funkcja=="vfork",]$sum ~ w3[w3$funkcja=="vfork",]$n, type="o", col="green")
+lines(w3[w3$funkcja=="clone",]$sum ~ w3[w3$funkcja=="clone",]$n, type="o", col="blue")
+lines(w3[w3$funkcja=="clonev",]$sum ~ w3[w3$funkcja=="clonev",]$n, type="o", col="orange")
+legend(1, max(w3$sum), c("fork", "vfork", "clone", "clonev"), cex=0.8, col=c("red", "green", "blue", "orange"), lty=1, pch=21)
+dev.off()

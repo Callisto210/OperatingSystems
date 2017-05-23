@@ -1,0 +1,121 @@
+2000
+
+time ./sort ala 4 lib
+real	0m3.993s
+user	0m0.670s
+sys		0m2.231s
+
+time ./sort ala 4 sys
+
+real	0m2.180s
+user	0m0.211s
+sys		0m1.439s
+
+5000
+
+time ./sort ala 4 lib
+
+real	0m24.290s
+user	0m4.138s
+sys		0m14.044s
+
+time ./sort ala 4 sys
+
+real	0m14.115s
+user	0m1.147s
+sys		0m9.361s
+
+2000
+
+time ./sort ala 512 lib
+
+real	0m6.184s
+user	0m1.706s
+sys		0m2.788s
+
+time ./sort ala 512 sys
+
+real	0m3.151s
+user	0m0.194s
+sys		0m2.029s
+
+5000
+
+time ./sort ala 512 lib
+
+real	0m40.526s
+user	0m10.679s
+sys		0m18.534s
+
+time ./sort ala 512 sys
+
+real	0m21.685s
+user	0m1.151s
+sys		0m13.769s
+
+2000
+
+time ./sort ala 4096 lib
+
+real	0m18.187s
+user	0m3.533s
+sys		0m9.116s
+
+time ./sort ala 4096 sys
+
+real	0m10.622s
+user	0m0.179s
+sys		0m7.199s
+
+5000
+
+time ./sort ala 4096 lib
+
+real	2m12.305s
+user	0m29.620s
+sys		1m2.167s
+
+time ./sort ala 4096 sys
+
+real	1m16.133s
+user	0m1.260s
+sys		0m51.391s
+
+2000
+
+time ./sort ala 8192 lib
+
+real	0m29.333s
+user	0m3.696s
+sys		0m16.586s
+
+time ./sort ala 8192 sys
+
+real	0m21.258s
+user	0m0.198s
+sys		0m14.416s
+
+5000
+
+time ./sort ala 8192 lib
+
+real	3m28.637s
+user	0m30.865s
+sys		1m48.495s
+
+time ./sort ala 8192 sys
+
+real	2m28.462s
+user	0m1.292s
+sys		1m35.357s
+
+
+Wnioski:
+Wyniki mówią same za siebie. 
+Funkcje systemowe zostawiają daleko w tyle funkcje biblioteczne.
+Porównując czasy użytkownika, różnica jest 30 krotna! Pomimo wykonywania
+większej ilość pracy w czasie systemowym, nadal ma przewagę nad funkcjami bibliotecznymi.
+Realnie przekłada się to na skrócenie czasu o około minutę, co przy najdłuższym czasie 3 i pół
+minuty daje odczuwalny wzrost wydajności.
+
+

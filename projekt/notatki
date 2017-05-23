@@ -1,0 +1,12 @@
+/proc/modules
+/proc/devices
+
+freeing unused memory <- __init
+
+modinfo ./ramdisk.ko
+
+https://www.kernel.org/doc/htmldocs/kernel-api
+http://www.makelinux.net/ldd3
+lxr.free-electrons.com
+The Linux Kernel Module Programming Guide
+http://people.netfilter.org/rusty/unreliable-guides/kernel-hacking
